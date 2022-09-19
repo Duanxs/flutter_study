@@ -15,16 +15,29 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
-      title: 'Startup Name Generator',
-      home: Scaffold(
+        theme: ThemeData(
+            useMaterial3: true,
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                backgroundColor: Theme.of(context).colorScheme.primary,
+              ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+            )),
+        title: 'Startup Name Generator',
+        home: Scaffold(
           appBar: AppBar(
             title: const Text('Startup Name Generator'),
           ),
-          body: const Center(
-            child: RandomWords(),
-          )),
-    );
+          body: Column(
+            children: [
+              ElevatedButton(onPressed: () {}, child: const Text('button')),
+
+              //     const Center(
+              //   child: RandomWords(),
+              // )
+            ],
+          ),
+        ));
   }
 }
 
