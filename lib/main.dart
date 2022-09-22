@@ -24,18 +24,42 @@ class MyApp extends StatelessWidget {
               ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             )),
         title: 'Startup Name Generator',
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Startup Name Generator'),
-          ),
-          body: Column(
-            children: [
-              ElevatedButton(onPressed: () {}, child: const Text('button')),
-
-              //     const Center(
-              //   child: RandomWords(),
-              // )
-            ],
+          // appBar: AppBar(
+          //   title: const Text('Startup Name Generator'),
+          // ),
+          body: SafeArea(
+            minimum: const EdgeInsets.all(30),
+            child: ListView(
+              children: [
+                const TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Name',
+                    hintText: 'Enter your name',
+                  ),
+                ),
+                const SizedBox(height: 10),
+                const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'password',
+                    hintText: 'Enter your password',
+                  ),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton(onPressed: () {}, child: const Text('登 录')),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor:
+                          Theme.of(context).colorScheme.onSecondaryContainer,
+                      backgroundColor:
+                          Theme.of(context).colorScheme.secondaryContainer,
+                    ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+                    onPressed: () {},
+                    child: const Text('注 册')),
+              ],
+            ),
           ),
         ));
   }
